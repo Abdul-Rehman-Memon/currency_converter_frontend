@@ -1,0 +1,18 @@
+.history-card {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .text-muted {
+      color: gray;
+    }
+
+    table {
+      margin-top: 20px;
+    }

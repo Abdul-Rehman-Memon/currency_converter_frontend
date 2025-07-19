@@ -1,3 +1,6 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css'; /* or choose another */
+/* @import "bootstrap/dist/css/bootstrap.min.css"; */
+
 html, body {
   margin: 0;
   font-family: Arial, sans-serif;
