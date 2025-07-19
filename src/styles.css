@@ -1,0 +1,12 @@
+html, body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+app-root {
+  display: block;
+  padding: 1rem;
+}
+.loader {
+  text-align: center;
+  padding: 2rem;
+}/* You can add global styles to this file, and also import other style files */
