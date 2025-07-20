@@ -9,6 +9,7 @@ export interface ConversionRecord {
   base_currency: string;
   currencies: string;
   amount: number;
+  rate: number;
   result: number;
   timestamp: string;
 }

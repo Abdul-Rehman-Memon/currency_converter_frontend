@@ -25,6 +25,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
   displayedColumns = [
     "base_currency",
     "currencies",
+    "rate",
     "amount",
     "result",
     "timestamp",

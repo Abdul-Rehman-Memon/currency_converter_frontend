@@ -3,6 +3,7 @@ import { COMMON_IMPORTS } from "../../shared/common.imports";
 import { FormBuilder, Validators } from "@angular/forms";
 import { CurrencyConversionService } from "../../core/services/currency_conversion.service";
 import { SharedService } from "../../core/services/shared.service";
+import { convertedData } from "../../core/interfaces/curency_converted";
 
 const commonImports = [...COMMON_IMPORTS];
 
@@ -22,7 +23,7 @@ export class CurrencyConverterComponent implements OnInit {
     this.getCurrencies();
   }
 
-  convertedAmount = signal<number | null>(null);
+  convertedAmount: convertedData | null = null;
 
   form = this.fb.group({
     amount: [1, [Validators.required, Validators.min(0.01)]],
@@ -54,7 +55,7 @@ export class CurrencyConverterComponent implements OnInit {
     };
     this.currencyService.convert(payload).subscribe({
       next: (result) => (
-        this.convertedAmount.set(result), this.sharedService.triggerAction()
+        (this.convertedAmount = result), this.sharedService.triggerAction()
       ),
       error: (err) => console.error("Conversion error:", err),
     });
