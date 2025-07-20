@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build:ssr": "ng build && ng run currency_converter:server",
-  "serve:ssr": "node dist/currency_converter/server/main.js",
+    "serve:ssr": "node dist/currency_converter/server/main.js",
     "serve:ssr:currency_converter": "node dist/currency_converter/server/server.mjs"
   },
   "prettier": {
@@ -35,6 +35,8 @@
     "@angular/router": "^20.1.0",
     "@angular/ssr": "^20.1.1",
     "@ng-bootstrap/ng-bootstrap": "^19.0.1",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.7",
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -44,6 +46,7 @@
     "@angular/build": "^20.1.1",
     "@angular/cli": "^20.1.1",
     "@angular/compiler-cli": "^20.1.0",
+    "@angular/localize": "^20.1.0",
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",

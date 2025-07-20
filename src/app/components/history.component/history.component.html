@@ -1,36 +1,123 @@
- <mat-card class="history-card">
-      <h2>Conversion History</h2>
+<div class="container-fluid">
+  <div class="card shadow-lg border-0 rounded-4 mb-4">
+    <div
+      class="card-header bg-primary text-white py-4 position-relative overflow-hidden flex align-items-center"
+    >
+      <h2 class="card-title mb-0 fw-bold fs-4 w-25">Conversion History</h2>
+    </div>
 
-      <table mat-table [dataSource]="history" class="mat-elevation-z2 full-width">
+    <div class="card-body p-0">
+      <div class="table-responsive rounded-bottom">
+        <table
+          mat-table
+          [dataSource]="history"
+          class="table table-striped-columns"
+        >
+          <ng-container matColumnDef="base_currency">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-light fw-semibold text-uppercase small py-3 px-4 border-0 text-muted"
+            >
+              Base Currency
+            </th>
+            <td mat-cell *matCellDef="let row" class="py-3 px-4">
+              <span
+                class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-medium border border-primary border-opacity-25"
+              >
+                {{ row.base_currency }}
+              </span>
+            </td>
+          </ng-container>
 
-        <ng-container matColumnDef="from">
-          <th mat-header-cell *matHeaderCellDef> From </th>
-          <td mat-cell *matCellDef="let row"> {{ row.from }} </td>
-        </ng-container>
+          <ng-container matColumnDef="currencies">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-light fw-semibold text-uppercase small py-3 px-4 border-0 text-muted"
+            >
+              Target Currency
+            </th>
+            <td mat-cell *matCellDef="let row" class="py-3 px-4">
+              <span
+                class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill fw-medium border border-success border-opacity-25"
+              >
+                {{ row.currencies }}
+              </span>
+            </td>
+          </ng-container>
 
-        <ng-container matColumnDef="to">
-          <th mat-header-cell *matHeaderCellDef> To </th>
-          <td mat-cell *matCellDef="let row"> {{ row.to }} </td>
-        </ng-container>
+          <ng-container matColumnDef="amount">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-light fw-semibold text-uppercase small py-3 px-4 border-0 text-muted"
+            >
+              Amount
+            </th>
+            <td mat-cell *matCellDef="let row" class="py-3 px-4">
+              <span class="fw-semibold text-dark fs-6">{{ row.amount }}</span>
+            </td>
+          </ng-container>
 
-        <ng-container matColumnDef="amount">
-          <th mat-header-cell *matHeaderCellDef> Amount </th>
-          <td mat-cell *matCellDef="let row"> {{ row.amount }} </td>
-        </ng-container>
+          <ng-container matColumnDef="result">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-light fw-semibold text-uppercase small py-3 px-4 border-0 text-muted"
+            >
+              Result
+            </th>
+            <td mat-cell *matCellDef="let row" class="py-3 px-4">
+              <span
+                class="fw-bold text-info fs-6 badge bg-info bg-opacity-10 px-3 py-2 rounded-pill border border-info border-opacity-25"
+              >
+                {{ row.result | number : "1.2-2" }}
+              </span>
+            </td>
+          </ng-container>
 
-        <ng-container matColumnDef="result">
-          <th mat-header-cell *matHeaderCellDef> Result </th>
-          <td mat-cell *matCellDef="let row"> {{ row.result | number:'1.2-2' }} </td>
-        </ng-container>
+          <ng-container matColumnDef="timestamp">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="bg-light fw-semibold text-uppercase small py-3 px-4 border-0 text-muted"
+            >
+              Date and Time
+            </th>
+            <td mat-cell *matCellDef="let row" class="py-3 px-4">
+              <small class="text-muted fw-medium d-block">
+                {{ row.timestamp | date : "short" }}
+              </small>
+            </td>
+          </ng-container>
 
-        <ng-container matColumnDef="timestamp">
-          <th mat-header-cell *matHeaderCellDef> Date </th>
-          <td mat-cell *matCellDef="let row"> {{ row.timestamp | date:'short' }} </td>
-        </ng-container>
+          <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns"
+            class="border-0"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            class="border-0"
+          ></tr>
+        </table>
+      </div>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-
-      <p *ngIf="!history.length" class="text-muted mt-3">No conversion history available.</p>
-    </mat-card>
+      <div *ngIf="!history.length" class="text-center py-5 px-4">
+        <div class="text-muted">
+          <i
+            class="bi bi-inbox display-1 text-black-50 mb-3 d-block opacity-25"
+          ></i>
+          <p class="fs-5 mb-2 fw-medium text-secondary">
+            No conversion history available
+          </p>
+          <p class="small text-muted mb-0">
+            Your currency conversions will appear here
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

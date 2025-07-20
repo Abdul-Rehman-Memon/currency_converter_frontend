@@ -12,7 +12,7 @@ import { MatTableModule } from "@angular/material/table";
 import { MatCardModule } from "@angular/material/card";
 
 // ng-bootstrap
-import { NgbAlertModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbAlertModule, NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { LoaderComponent } from "../components/loader.component/loader.component";
 
 export const COMMON_IMPORTS = [
@@ -21,6 +21,7 @@ export const COMMON_IMPORTS = [
   MatInputModule,
   MatSelectModule,
   MatButtonModule,
+  NgbModule,
   NgbAlertModule,
   MatProgressBarModule,
   MatTableModule,
